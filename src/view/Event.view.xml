@@ -1,0 +1,109 @@
+<mvc:View
+  controllerName="cpro.ui5.__kunde__.__projekt__.controller.Event"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:f="sap.f"
+  xmlns:layout="sap.ui.layout"
+  height="100%">
+  <f:DynamicPage id="event-page">
+    <!-- DynamicPage Title -->
+    <f:title>
+      <f:DynamicPageTitle>
+        <f:heading>
+          <Title text="{event>/activeItem/eventName}" />
+        </f:heading>
+        <f:expandedContent>
+          <Label text="{event>/activeItem/description}" />
+        </f:expandedContent>
+        <f:snappedContent>
+          <Label text="{event>/activeItem/description}" />
+        </f:snappedContent>
+        <f:snappedTitleOnMobile>
+          <Title text="{event>/activeItem/description}" />
+        </f:snappedTitleOnMobile>
+        <f:content>
+          <OverflowToolbar>
+
+          </OverflowToolbar>
+        </f:content>
+        <f:navigationActions>
+          <Button
+            icon="sap-icon://full-screen"
+            type="Transparent" />
+          <Button
+            icon="sap-icon://decline"
+            type="Transparent"
+            press="onCloseEventDetails" />
+        </f:navigationActions>
+      </f:DynamicPageTitle>
+    </f:title>
+    <!-- DynamicPage Header -->
+    <f:header>
+      <f:DynamicPageHeader pinnable="true">
+        <layout:HorizontalLayout allowWrapping="true">
+          <layout:VerticalLayout class="sapUiMediumMarginEnd">
+            <ObjectAttribute title="Location" text="{event>/activeItem/location}" />
+            <ObjectAttribute title="Date" text="{event>/activeItem/date}" />
+          </layout:VerticalLayout>
+        </layout:HorizontalLayout>
+      </f:DynamicPageHeader>
+    </f:header>
+    <f:content>
+      <Table id="event-page-attendee-table"
+        inset="false"
+        items="{
+							path: 'event>/activeItem/attendees'
+						}"
+        class="sapFDynamicPageAlignContent"
+        width="auto">
+        <headerToolbar>
+          <Toolbar>
+            <Title text="Attendees" level="H2" />
+          </Toolbar>
+        </headerToolbar>
+        <columns>
+          <Column
+            width="12em">
+            <Text text="Id" />
+          </Column>
+          <Column
+            minScreenWidth="Tablet"
+            demandPopin="true">
+            <Text text="Name" />
+          </Column>
+          <Column
+            minScreenWidth="Tablet"
+            demandPopin="true"
+            hAlign="Start">
+            <Text text="Status" />
+          </Column>
+        </columns>
+        <items>
+          <ColumnListItem type="Navigation" press="onPressAttendeeTableItem">
+            <cells>
+              <ObjectIdentifier
+                title="{event>userId}" />
+              <Text
+                text="{event>name}" />
+              <Text
+                text="{event>registrationStatus}" />
+            </cells>
+          </ColumnListItem>
+        </items>
+      </Table>
+    </f:content>
+    <!-- DynamicPage Footer -->
+    <f:footer>
+      <OverflowToolbar>
+        <Button icon="sap-icon://message-popup"
+          text="{/messagesLength}"
+          type="Emphasized"
+          press="onMessageButtonPress"
+          visible="{= !!${/messagesLength}}" />
+        <ToolbarSpacer />
+        <Button type="Accept" text="Accept" />
+        <Button type="Reject" text="Reject" />
+      </OverflowToolbar>
+    </f:footer>
+  </f:DynamicPage>
+</mvc:View>

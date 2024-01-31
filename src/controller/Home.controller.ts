@@ -1,0 +1,101 @@
+import Event from 'sap/ui/base/Event';
+import ManagedObject from 'sap/ui/base/ManagedObject';
+import Filter from 'sap/ui/model/Filter';
+import FilterOperator from 'sap/ui/model/FilterOperator';
+import BaseController from './BaseController';
+import { messageModel, configModel, eventModel } from '../model/provider';
+import {
+  AppBinding,
+  AppEventProvider,
+  AppSortEventParameters,
+} from '../@types/UI5Shims';
+import Dialog from 'sap/m/Dialog';
+import Fragment from 'sap/ui/core/Fragment';
+import Sorter from 'sap/ui/model/Sorter';
+
+/**
+ * @namespace cpro.ui5.__kunde__.__projekt__.controller.Home
+ */
+export default class HomeController extends BaseController {
+  private homeDialogTableFilterPath =
+    'cpro/ui5/__kunde__/__projekt__/view/Fragments/TableFilter';
+  private homeDialogTableSorterPath =
+    'cpro/ui5/__kunde__/__projekt__/view/Fragments/TodoTableSorter';
+
+  private homeDialogs: Record<string, Dialog> = {};
+
+  onInit() {
+    messageModel.register(this);
+    eventModel.register(this);
+    eventModel.syncEvents();
+  }
+
+  onPressTableItem(event: Event) {
+    configModel.setLayout('TwoColumnsMidExpanded')
+    const eventPath = (event.getSource() as ManagedObject)
+      .getBindingContext('event')
+      .getPath();
+    const eventItem = eventModel.getProperty(eventPath);
+    this.getRouter().navTo('event', { eventId: eventItem.eventId });
+  }
+
+  onSearch(event: Event) {
+    const query = (event.getSource() as AppEventProvider).getValue();
+    const filterProps = ['eventName', 'location'];
+    const appliedFilters: Filter[] = [];
+    const tableControl = this.getView().byId('table-events');
+
+    if (query) {
+      filterProps.forEach((key) =>
+        appliedFilters.push(new Filter(key, FilterOperator.Contains, query)),
+      );
+    }
+
+    (tableControl.getBinding('items') as AppBinding).filter(
+      appliedFilters.length === 0 ? [] : new Filter(appliedFilters, false),
+    );
+  }
+
+  async onOpenSorterDialog() {
+    const view = this.getView();
+
+    if (!this.homeDialogs[this.homeDialogTableSorterPath]) {
+      this.homeDialogs[this.homeDialogTableSorterPath] = (await Fragment.load({
+        name: this.homeDialogTableSorterPath,
+        controller: this,
+      })) as Dialog;
+      view.addDependent(this.homeDialogs[this.homeDialogTableSorterPath]);
+    }
+    this.homeDialogs[this.homeDialogTableSorterPath].open();
+  }
+
+  sortTodos(event: Event) {
+    const tableControl = this.getView().byId('table-events');
+    const parameters = event.getParameters() as AppSortEventParameters;
+    const key = parameters.sortItem.getKey();
+    const descending: boolean = parameters.sortDescending;
+    const sorters = [];
+    sorters.push(new Sorter(key, descending));
+    (tableControl.getBinding('items') as AppBinding).sort(sorters);
+  }
+
+  onPressExport() {
+    messageModel.addInfoMessage({
+      message: 'You exported your events as an excel file',
+    });
+  }
+  onPressInfoButton() {
+    messageModel.addInfoMessage({
+      message: 'You pressed the INFO button',
+      description: 'Here goes an informatic description',
+    });
+  }
+  onPressSuccessButton() {
+    messageModel.addSuccessMessage({
+      message: 'You pressed the SUCCESS button',
+    });
+  }
+  onPressCancelButton() {
+    messageModel.addErrorMessage({ message: 'You pressed the CANCEL button' });
+  }
+}

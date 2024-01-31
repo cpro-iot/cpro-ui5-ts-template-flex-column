@@ -1,0 +1,6 @@
+<mvc:View displayBlock="true" xmlns="sap.m" xmlns:f="sap.f" xmlns:mvc="sap.ui.core.mvc"
+	controllerName="cpro.ui5.__kunde__.__projekt__.controller.App">
+	<App id="app">
+		<f:FlexibleColumnLayout id="fcl" layout="{config>/layout}"></f:FlexibleColumnLayout>
+	</App>
+</mvc:View>
