@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/cpro-iot">
-    <img src="https://www.cpro-iot.de/wp-content/uploads/Logo-mit-Claim_weiss-1920x204.png" alt="Logo" width="480" height="60">
+    <img src="https://cpro-iot.de/wp-content/themes/cpro-industry/assets/images/iot/cpro-iot-connect-white.png" alt="Logo" width="480" height="60">
   </a>
 
 <h3 align="center">OpenUI5 Typescript template</h3>
