@@ -79,11 +79,6 @@ export default class HomeController extends BaseController {
     (tableControl.getBinding('items') as AppBinding).sort(sorters);
   }
 
-  onPressExport() {
-    messageModel.addInfoMessage({
-      message: 'You exported your events as an excel file',
-    });
-  }
   onPressInfoButton() {
     messageModel.addInfoMessage({
       message: 'You pressed the INFO button',

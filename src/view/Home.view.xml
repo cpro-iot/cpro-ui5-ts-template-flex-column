@@ -18,8 +18,6 @@
 						<content>
 							<Title text="{i18n>table-events-title}" />
 							<ToolbarSpacer />
-							<Button icon="sap-icon://excel-attachment"
-								tooltip="{i18n>table-events-toolbar-download}" press="onPressExport" />
 							<Button type="Transparent" tooltip="{i18n>table-events-toolbar-sort}"
 								icon="sap-icon://sort" press="onOpenSorterDialog" />
 							<SearchField width="14rem" liveChange="onSearch" />
