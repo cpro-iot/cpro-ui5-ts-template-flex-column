@@ -28,8 +28,10 @@
         </f:content>
         <f:navigationActions>
           <Button
+            id="attendee-fullscreen-button"
             icon="sap-icon://full-screen"
-            type="Transparent" />
+            type="Transparent"
+            press="onToggleAttendeeFullscreen" />
           <Button
             icon="sap-icon://decline"
             type="Transparent"

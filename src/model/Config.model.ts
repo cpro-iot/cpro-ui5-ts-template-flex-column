@@ -9,6 +9,7 @@ type AppLayout = "OneColumn"
   | "ThreeColumnsBeginExpanded"
   | "ThreeColumnsMidExpanded"
   | "ThreeColumnsEndExpanded"
+  | "EndColumnFullScreen"
 
 /**
  * @namespace cpro.ui5.__kunde__.__projekt__.model.Config

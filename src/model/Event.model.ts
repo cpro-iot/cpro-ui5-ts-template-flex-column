@@ -97,6 +97,10 @@ export default class EventModel extends BaseModel<IEvent> {
     this.setProperty('/activeAttendee', attendee);
   }
 
+  getActiveAttendee() {
+    return this.getProperty('/activeAttendee');
+  }
+
   syncEvents() {
     this.setCollection(events);
   }

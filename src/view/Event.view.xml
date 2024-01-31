@@ -28,9 +28,6 @@
         </f:content>
         <f:navigationActions>
           <Button
-            icon="sap-icon://full-screen"
-            type="Transparent" />
-          <Button
             icon="sap-icon://decline"
             type="Transparent"
             press="onCloseEventDetails" />
