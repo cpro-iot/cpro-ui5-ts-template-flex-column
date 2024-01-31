@@ -10,7 +10,7 @@
 <h3 align="center">OpenUI5 Typescript template</h3>
 
   <p align="center">
-  An opinionated Typescript template for developing (Open)UI5 apps.
+  An opinionated Typescript template for developing (Open)UI5 apps using the flexible column layout
     <br />
     <br />
   </p>
