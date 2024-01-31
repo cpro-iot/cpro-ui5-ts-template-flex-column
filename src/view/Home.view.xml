@@ -21,8 +21,6 @@
 							<Button type="Transparent" tooltip="{i18n>table-events-toolbar-sort}"
 								icon="sap-icon://sort" press="onOpenSorterDialog" />
 							<SearchField width="14rem" liveChange="onSearch" />
-							<Button type="Ghost" icon="sap-icon://add"
-								tooltip="{i18n>table-events-toolbar-new-event}" press="navToNewTodoForm" />
 						</content>
 					</OverflowToolbar>
 				</headerToolbar>
@@ -31,13 +29,13 @@
 						<Text text="{i18n>table-events-column-eventid}" />
 					</Column>
 					<Column hAlign="Left" minScreenWidth="Tablet" demandPopin="true">
-						<Text text="{i18n>table-events-column-todoId}" />
+						<Text text="{i18n>table-events-column-eventId}" />
 					</Column>
 					<Column minScreenWidth="Desktop" demandPopin="true">
-						<Text text="{i18n>table-events-column-todoTitle}" />
+						<Text text="{i18n>table-events-column-location}" />
 					</Column>
 					<Column minScreenWidth="Desktop" demandPopin="true" hAlign="Left">
-						<Text text="{i18n>table-events-column-todoDone}" />
+						<Text text="{i18n>table-events-column-attendeeCount}" />
 					</Column>
 				</columns>
 				<items>

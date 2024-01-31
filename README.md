@@ -36,6 +36,7 @@ So you should use this template if you
   - other useful [core packages & tooling](https://ui5.sap.com/#/tools)
 - work in a bigger team and prefer using Typescript over JS
 - would like to build a prototype that can be quickly extended
+- do not want to implement all the Flex Column Layout logic by yourself
 
 You should **not** use this template if you
 
@@ -57,15 +58,15 @@ You should **not** use this template if you
 
 - Recommended VSCode plugins for DX
 - Babel, NPM scripts & UI5 middleware for development
+- Built-in [Flex Column Layout](https://ui5.sap.com/#/entity/sap.f.FlexibleColumnLayout)
 - A [dockerfile for local development](./client.dev.dockerfile) with NPM + Babel + ui5/cli
 - A [dockerfile for productive usage](client.prod.dockerfile) with nginx as a static server, see [nginx.conf](./nginx.conf)
 
 ### Demo features
 
-- UI5 built-in form validation - See [Code Controller](https://github.com/cpro-iot/cpro-ui5-ts-template/blob/master/src/controller/TodoForm.controller.ts#L42), [View Form Template](https://github.com/cpro-iot/cpro-ui5-ts-template/blob/master/src/view/TodoForm.view.xml#L23), [Manifest Configuration](https://github.com/cpro-iot/cpro-ui5-ts-template/blob/master/src/manifest.json#L34) `"handleValidation": true` under `sap-ui5`
-- Table export using [Xlsx](https://www.npmjs.com/package/xlsx) - See [Todo Model](https://github.com/cpro-iot/cpro-ui5-ts-template/blob/master/src/model/Todo.model.ts#L83)
+- UI5 built-in form validation - 
 - Set Fiori theme to dark mode + change languages in a dedicated `Settings` - Fragment - See [Config Model](https://github.com/cpro-iot/cpro-ui5-ts-template/blob/master/src/model/Config.model.ts) and [Settings Fragment](https://github.com/cpro-iot/cpro-ui5-ts-template/blob/master/src/view/Fragments/Settings.fragment.xml)
-- A message - manager for user feedback - See [Message Model](https://github.com/cpro-iot/cpro-ui5-ts-template/blob/master/src/model/Message.model.ts) and [Messages Fragment](https://github.com/cpro-iot/cpro-ui5-ts-template/blob/master/src/view/Fragments/Messages.fragment.xml). See also [Todo Form Controller](https://github.com/cpro-iot/cpro-ui5-ts-template/blob/master/src/controller/TodoForm.controller.ts) for implementation example
+- A message - manager for user feedback
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -134,13 +135,9 @@ client:
 
 ## Screenshots
 
-### Fiori 3 Light & Darkmode
+### Flexible column Layout
 
-![fiori three light and darkmode](https://github.com/cpro-iot/cpro-ui5-ts-template/blob/master/.github/assets/screenshot-demo-theming.png?raw=true)
-
-### Message manager and settings menu
-
-![message manager and settings menu](https://github.com/cpro-iot/cpro-ui5-ts-template/blob/master/.github/assets/screenshot-demo-settings-message-manager.png?raw=true)
+![flxible column layout](https://github.com/cpro-iot/cpro-ui5-ts-template-flex-column/blob/master/.github/assets/screenshot-demo-columns.png?raw=true)
 
 ## Sources
 

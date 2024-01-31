@@ -46,10 +46,6 @@ export default class BaseController extends Controller {
     this.getRouter().navTo('about');
   }
 
-  public navToNewTodoForm(): void {
-    this.getRouter().navTo('todo-form');
-  }
-
   /**
    *
    * @param mountFunction The react mount function of the root component

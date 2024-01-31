@@ -5,9 +5,9 @@ import ManagedObject from 'sap/ui/base/ManagedObject';
 import MessageToast from 'sap/m/MessageToast';
 
 /**
- * @namespace cpro.ui5.__kunde__.__projekt__.controller.Todo
+ * @namespace cpro.ui5.__kunde__.__projekt__.controller.Event
  */
-export default class TodoController extends BaseController {
+export default class EventController extends BaseController {
   onInit() {
     eventModel.register(this);
     messageModel.register(this);
@@ -20,16 +20,6 @@ export default class TodoController extends BaseController {
   async _onObjectMatched(oEvent: Event) {
     const { eventId } = oEvent.getParameter('arguments');
     eventModel.setActiveEventFromCollection(eventId);
-  }
-
-  onPressAcceptButton() {
-    const message = this.getAppResourceBundleText(
-      'message-todo-update-success',
-    );
-
-    messageModel.addSuccessMessage({ message });
-    MessageToast.show(message);
-    this.navToHome();
   }
 
   onPressAttendeeTableItem(event: Event) {

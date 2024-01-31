@@ -20,7 +20,7 @@ export default class HomeController extends BaseController {
   private homeDialogTableFilterPath =
     'cpro/ui5/__kunde__/__projekt__/view/Fragments/TableFilter';
   private homeDialogTableSorterPath =
-    'cpro/ui5/__kunde__/__projekt__/view/Fragments/TodoTableSorter';
+    'cpro/ui5/__kunde__/__projekt__/view/Fragments/EventTableSorter';
 
   private homeDialogs: Record<string, Dialog> = {};
 
@@ -69,7 +69,7 @@ export default class HomeController extends BaseController {
     this.homeDialogs[this.homeDialogTableSorterPath].open();
   }
 
-  sortTodos(event: Event) {
+  sortEvents(event: Event) {
     const tableControl = this.getView().byId('table-events');
     const parameters = event.getParameters() as AppSortEventParameters;
     const key = parameters.sortItem.getKey();

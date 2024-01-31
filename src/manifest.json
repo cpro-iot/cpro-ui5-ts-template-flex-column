@@ -124,11 +124,6 @@
           "viewLevel": 2,
           "controlAggregation": "endColumnPages"
         },
-        "todo-form": {
-          "viewName": "TodoForm",
-          "viewId": "todo-form",
-          "viewLevel": 2
-        },
         "about": {
           "viewName": "About",
           "viewId": "about",

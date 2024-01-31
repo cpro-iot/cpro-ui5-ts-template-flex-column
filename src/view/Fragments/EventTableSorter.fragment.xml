@@ -1,11 +1,11 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
-    <ViewSettingsDialog confirm="sortTodos">
+    <ViewSettingsDialog confirm="sortEvents">
         <sortItems>
             <ViewSettingsItem text="{i18n>table-events-column-eventid}" key="userId" selected="true" />
-            <ViewSettingsItem text="{i18n>table-events-column-todoId}" key="id" />
-            <ViewSettingsItem text="{i18n>table-events-column-todoTitle}" key="title" />
+            <ViewSettingsItem text="{i18n>table-events-column-eventId}" key="id" />
+            <ViewSettingsItem text="{i18n>table-events-column-location}" key="title" />
             <ViewSettingsItem text="{i18n>table-events-description}" key="description" />
-            <ViewSettingsItem text="{i18n>table-events-column-todoDone}" key="completed" />
+            <ViewSettingsItem text="{i18n>table-events-column-attendeeCount}" key="completed" />
         </sortItems>
     </ViewSettingsDialog>
 </core:FragmentDefinition>
