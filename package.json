@@ -21,7 +21,7 @@
     "@babel/preset-react": "^7.22.15",
     "@babel/preset-typescript": "^7.23.2",
     "@types/openui5": "^1.119.1",
-    "@ui5/cli": "^3.7.0",
+    "@ui5/cli": "^4.0.51",
     "babel-preset-transform-ui5": "^7.2.5",
     "concurrently": "^8.2.2",
     "eslint": "^8.51.0",
